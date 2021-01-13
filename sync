@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+current_branch=$(git branch --show-current)
+backup_branch="${current_branch}-bck"
+
+echo "Creating a backup branch..."
+git branch --force "$backup_branch"
+
+echo "Syncing with upstream..."
+helper_commit=$(git log --grep="Add sync helper for easy sync with upstream" --format=format:%H)
+git fetch --all
+git reset --hard "upstream/$current_branch"
+
+echo "Removing unused config files..."
+git rm -rf config
+git checkout HEAD -- config/examples/Creality/Ender-3\ Pro/BigTreeTech\ SKR\ Mini\ E3\ 2.0
+git commit -m "Configurations only for Ender-3 PRO with SKR Mini E3 2.0"
+
+echo "Cherry-picking changes..."
+git cherry-pick "$helper_commit"^1.."$backup_branch"
+
+echo "DONE!"
