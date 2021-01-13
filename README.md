@@ -1,14 +1,5 @@
-# Configurations
-Pre-tested Configurations for Marlin Firmware bugfix-2.0.x
+# Marlin Configuration for **OctoEnder**
+This repository is where I maintain my **OctoEnder**. What is **OctoEnder**? It is 3D printer **Ender-3 PRO** on steroids ;) It is inspired by superior article [OctoEnder alias super-silent printer](https://www.3dpedie.cz/en/inspirations/octoender_by_kiron) and some Reddit Guides. All credits are included in separated commits.
 
-Marlin Firmware is configured using two files:
-
-- `Configuration.h` contains core configuration options like machine geometry.
-- `Configuration_adv.h` contains optional settings for advanced and low level features.
-
-For Graphical LCD these files may also be included:
-
-- `_Bootscreen.h` provides the bitmap for a custom Boot Screen.
-- `_Statusscreen.h` provides bitmaps to customize the Status Screen.
-
-See the [Configuration page](https://marlinfw.org/docs/configuration/configuration.html) for more information about configuration and individual configuration options.
+* Based on the most current versions of Marlin (`bugfix-2.0.x`)
+* Included helper `./sync` for easy sync with upstream
